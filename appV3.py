@@ -5,9 +5,6 @@ import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
 
-
-
-
 # Set page configuration
 st.set_page_config(page_title="मेरो ए.आई शिक्षक", page_icon=":speech_balloon:")
 
@@ -16,7 +13,7 @@ openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 #Add custom CSS for hiding icons
 hide_github_icon="""
-#GithubIcon {
+#MainMenu {
     visibility: hidden
 }
 """
