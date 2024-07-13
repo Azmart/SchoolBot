@@ -5,14 +5,7 @@ import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
 
-#Add custom CSS for hiding icons
-hide_github_icon="""
-#GithubIcon {
-    visibility: hidden
-}
-"""
 
-st.markdown(hide_github_icon, unsafe_allow_html=True)
 
 
 # Set page configuration
@@ -21,7 +14,14 @@ st.set_page_config(page_title="मेरो ए.आई शिक्षक", page
 # Load secrets
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
+#Add custom CSS for hiding icons
+hide_github_icon="""
+#GithubIcon {
+    visibility: hidden
+}
+"""
 
+st.markdown(hide_github_icon, unsafe_allow_html=True)
 
 # Authentication setup
 with open('config.yaml') as file:
