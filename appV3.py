@@ -36,18 +36,20 @@ if authentication_status:
     if "thread_id" not in st.session_state:
         st.session_state.thread_id = None
 
-    if st.sidebar.button("Start Chat"):
-        st.session_state.start_chat = True
-        thread = client.beta.threads.create()
-        st.session_state.thread_id = thread.id
+    if st.sidebar.button("Exit Chat"):
+        st.session_state.messages = []  # Clear the chat history
+        st.session_state.start_chat = False  # Reset the chat state
+        st.session_state.thread_id = None
+        
+    
 
     st.title("मेरो ए.आई शिक्षक")
     st.write("Namaskar🙏")
 
-    if st.button("Exit Chat"):
-        st.session_state.messages = []  # Clear the chat history
-        st.session_state.start_chat = False  # Reset the chat state
-        st.session_state.thread_id = None
+    if st.button("Start Chat"):
+        st.session_state.start_chat = True
+        thread = client.beta.threads.create()
+        st.session_state.thread_id = thread.id
 
     if st.session_state.start_chat:
         if "openai_model" not in st.session_state:
